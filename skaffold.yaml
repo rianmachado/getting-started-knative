@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: getting-started-knative
+  namespace: ars-dev
+build:
+  artifacts:
+  - image: docker.io/rianmachado/demo-http-resteasy:v1
+  local:
+    push: false
+deploy:
+  kubectl:
+    manifests:
+    - k8s/service.yaml
